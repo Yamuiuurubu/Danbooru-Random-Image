@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Danbooru Random Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <p id="titulo_texto">Super Danbooru Random Image! (:</p>
+        <p id="errorMessage" style="color: red;"></p>
+
+        <img id="imagem", class="imagemstyle", alt="Imagem Aleatória">
+
+        <div id="container">
+            <form id="searchForm">
+        
+                <label for="tag1"></label>
+                <input type="text" id="tag1" placeholder="tag1">
+
+                <label for="tag2"></label>
+                <input type="text", id="tag2", placeholder="tag2">
+            </form>
+        </div>
+
+        <button id="botao_pesquisar", type="button", onclick="pesquisar()">Refresh</button>
+    </main>
+    
+    <script src="main.js"></script>
+</body>
+</html>
