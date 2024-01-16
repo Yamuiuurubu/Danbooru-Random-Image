@@ -1,9 +1,20 @@
+@font-face {
+    font-family: Halogen;
+    src: url(Resources/font/Halogen.ttf);
+}
+
 * {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
-    font-family: cursive;
+    font-family: Halogen;
 }
+
+body::-webkit-scrollbar {display: none;}
+
+main {padding: 20px;}
+
+#titulo_texto {margin-bottom: 30%;font-size: 35px;}
 
 body {
     min-height: 100vh;
@@ -23,7 +34,7 @@ body {
 
 #tag1, #tag2 {
     padding: 10px;
-    font-size: 16px;
+    font-size: 18px;
     border: 0;
     border-radius: 15px;
     width: 200px;
@@ -33,9 +44,9 @@ body {
 }
 
 #imagem {
-    display: none; /* Oculta a imagem inicialmente */
+    display: none;
     width: 100%;
-    max-height: 100vh; /* Define uma altura máxima igual à altura da viewport */
+    max-height: 100vh;
     border-radius: 30px;
     margin-bottom: 40px;
 }
@@ -44,19 +55,14 @@ body {
     background-color: #3498db;
     color: #ffffff;
     padding: 10px 20px;
-    font-size: 17px;
+    font-size: 18px;
     border: none; 
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.6s ease;
 }
 
-body::-webkit-scrollbar {display: none;}
-
-main {padding: 20px;}
-
-#imagem.carregada {display: block;}
+/*#imagem.carregada {display: block;}*/
 
 #botao_pesquisar:hover {background-color: #215e86;}
 
-#titulo_texto {margin-bottom: 30%;font-size: 40px;text-shadow: 10px 5px 6px rgba(255, 255, 255, 0.171);}

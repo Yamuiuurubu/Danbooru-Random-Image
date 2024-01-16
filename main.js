@@ -1,19 +1,14 @@
-//Mostrar imagem apenas quando ela carregar
-const imagem = document.getElementById('imagem')
+const imagem = document.getElementById('imagem') //Imagem
+const titulo = document.getElementById('titulo_texto')
 
-imagem.onload = function() {
-    imagem.classList.add('carregada')
-    var titulo = document.getElementById('titulo_texto')
-    //Tirar texto
-    titulo.textContent = ''
-    titulo.style.marginBottom = titulo.style.fontSize = 'initial'
-}
+const links_exibidos = new Set() //Cria um set para ler os links já exibidos
 
-const links_exibidos = new Set()
-//Fazer request da api do Danbooru
-const endpointRandom = "https://danbooru.donmai.us/posts/random.json"
+const endpointRandom = "https://danbooru.donmai.us/posts/random.json" //Fazer request da api do Danbooru
 
 function pesquisar() {
+    titulo.textContent = ''
+    titulo.style.marginBottom = titulo.style.fontSize = 'initial'
+    
     var tag1 = document.getElementById('tag1').value
     var tag2 = document.getElementById('tag2').value
     var errorMessageElement = document.getElementById('errorMessage')
@@ -22,9 +17,8 @@ function pesquisar() {
     if (tag1.trim() !== '' && tag2.trim() !== '') {
         var tags = `tags=${tag1}+${tag2}`
         const apiUrl = `${endpointRandom}?${tags}`
-        //console.log(tag1, tag2)
 
-        //Request
+        //Busca usando fetch()
         fetch(apiUrl)
             .then(response => {
                 if (!response.ok) {
@@ -34,26 +28,25 @@ function pesquisar() {
             })
             .then(postAleatorio => {
                 var urlImagem = postAleatorio.file_url
-                document.getElementById('imagem').src = urlImagem
-
+                imagem.src = urlImagem
+                imagem.style.filter = "blur(0) contrast(100%) brightness(100%) grayscale(0)"
+                imagem.style.display = 'block'
                 //Limpar mensagem de erro em caso de sucesso
                 errorMessageElement.textContent = ''
 
                 if (urlImagem === undefined) {
                     //console.log("NÃO DENIFIDO (ERROR)")
+                    imagem.style.display = 'none'
                     pesquisar() 
                     return
                 }
 
                 if (urlImagem !== undefined && links_exibidos.has(urlImagem)) {
-                    //console.log("ESSE LINK JÁ APARECEU! E NÃO É UNDEFINED TENTANDO PROCURAR UMA IMAGEM NOVA")
+                    imagem.style.filter = "blur(5px) contrast(70%) brightness(60%) grayscale(100%)"
                     pesquisar()
                     return
-
                 }
                 if (urlImagem.endsWith('.webm') || urlImagem.endsWith('.mp4')) {
-                    //console.log('É UM VÍDEO')
-                    //console.log(urlImagem)
                     pesquisar()
                     return
                 }
