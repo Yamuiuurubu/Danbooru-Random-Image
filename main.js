@@ -6,9 +6,6 @@ const links_exibidos = new Set() //Cria um set para ler os links já exibidos
 const endpointRandom = "https://danbooru.donmai.us/posts/random.json" //Fazer request da api do Danbooru
 
 function pesquisar() {
-    titulo.textContent = ''
-    titulo.style.marginBottom = titulo.style.fontSize = 'initial'
-    
     var tag1 = document.getElementById('tag1').value
     var tag2 = document.getElementById('tag2').value
     var errorMessageElement = document.getElementById('errorMessage')
@@ -33,6 +30,9 @@ function pesquisar() {
                 imagem.style.display = 'block'
                 //Limpar mensagem de erro em caso de sucesso
                 errorMessageElement.textContent = ''
+                //Remove o titulo em caso de sucesso
+                titulo.textContent = ''
+                titulo.style.marginBottom = titulo.style.fontSize = 'initial'
 
                 if (urlImagem === undefined) {
                     //console.log("NÃO DENIFIDO (ERROR)")
@@ -58,7 +58,7 @@ function pesquisar() {
                 console.error("Error fetching random post:", error)
                 //Exibir mensagem de erro
                 if (error == 'Error: 404') {
-                    errorMessageElement.textContent = "these tags don't exist ):"
+                    errorMessageElement.textContent = "These tags don't exist ):"
                 }
                 else {
                     errorMessageElement.textContent = error
@@ -66,6 +66,6 @@ function pesquisar() {
                 }
             })
     } else {
-        alert("You need put tags :p")
+        alert("You need put any tags :/")
     }
 }
