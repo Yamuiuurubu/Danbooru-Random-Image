@@ -1,3 +1,4 @@
+/* oi */
 @font-face {
     font-family: Halogen;
     src: url(Resources/font/Halogen.ttf);
@@ -14,7 +15,11 @@ body::-webkit-scrollbar {display: none;}
 
 main {padding: 20px;}
 
-#titulo_texto {margin-bottom: 30%;font-size: 35px;}
+#titulo_texto {
+    margin-bottom: 50px;
+    font-size: 45px;
+    transition: ease-in-out 1s ;   
+}
 
 body {
     min-height: 100vh;
@@ -26,43 +31,54 @@ body {
     background-color: rgb(20, 20, 20);
 }
 
-#conteúdo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 #tag1, #tag2 {
+    border: none;
     padding: 10px;
     font-size: 18px;
-    border: 0;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background-color: #242424;
-    color: white;
+    color: rgb(255, 255, 255);
+    transition: ease-in-out 0.5s;
 }
 
 #imagem {
+    transition: ease;
     display: none;
-    width: 100%;
+    margin: auto;
+    max-width: 100%;
     max-height: 100vh;
-    border-radius: 30px;
-    margin-bottom: 40px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#errorMessage {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.tagslink {
+    color: rgba(155, 255, 115, 0.603);
+}
+
+#artista {
+    font-size: 20px;
+    color: #b4b4b4;
+    margin-bottom: 15px;
 }
 
 #botao_pesquisar {
-    background-color: #3498db;
+    background-color: #596d51;
     color: #ffffff;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 16px;
+    font-size: 20px;
     border: none; 
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.5s ease;
 }
 
 /*#imagem.carregada {display: block;}*/
 
-#botao_pesquisar:hover {background-color: #215e86;}
-
+#botao_pesquisar:hover {background-color: #415234;}

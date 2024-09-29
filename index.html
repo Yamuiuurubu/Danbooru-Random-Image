@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="Resources/images/icon.ico" type="image/x-icon">
     <title>Super Danbooru Random Image</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,9 +14,10 @@
 
         <img id="imagem", class="imagemstyle", alt="Imagem Aleatória">
 
-        <p id="errorMessage" style="color: red;"></p>
+        <p id="errorMessage" style="color: rgb(235, 71, 71);"></p>
+        <p id="artista"></p>
 
-        <div id="conteúdo">
+        <div id="tags">
             <form>
                 <label for="tag1"></label>
                 <input type="text" id="tag1" placeholder="tag1">
@@ -25,7 +26,6 @@
                 <input type="text", id="tag2", placeholder="tag2">
             </form>
         </div>
-
         <button id="botao_pesquisar", type="button", onclick="pesquisar()">Refresh</button>
     </main>
     

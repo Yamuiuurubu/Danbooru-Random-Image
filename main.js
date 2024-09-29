@@ -1,7 +1,10 @@
 const imagem = document.getElementById('imagem') //Imagem
 const titulo = document.getElementById('titulo_texto')
+const artista = document.getElementById('artista')
 
 const links_exibidos = new Set() //Cria um set para ler os links já exibidos
+
+//"tag_string_artist": "geistbox"
 
 const endpointRandom = "https://danbooru.donmai.us/posts/random.json" //Fazer request da api do Danbooru
 
@@ -25,9 +28,13 @@ function pesquisar() {
             })
             .then(postAleatorio => {
                 var urlImagem = postAleatorio.file_url
+                var artista_nome = postAleatorio.tag_string_artist
                 imagem.src = urlImagem
                 imagem.style.filter = "blur(0) contrast(100%) brightness(100%) grayscale(0)"
                 imagem.style.display = 'block'
+
+                artista.textContent = 'Artist: ' + artista_nome
+
                 //Limpar mensagem de erro em caso de sucesso
                 errorMessageElement.textContent = ''
                 //Remove o titulo em caso de sucesso
@@ -58,7 +65,7 @@ function pesquisar() {
                 console.error("Error fetching random post:", error)
                 //Exibir mensagem de erro
                 if (error == 'Error: 404') {
-                    errorMessageElement.textContent = "These tags don't exist ):"
+                    errorMessageElement.innerHTML = ":( These tags don't exist, check <a href='https://danbooru.donmai.us/tags' target='_blank' class='tagslink'>Danbooru Tags</a>";
                 }
                 else {
                     errorMessageElement.textContent = error
@@ -66,6 +73,6 @@ function pesquisar() {
                 }
             })
     } else {
-        alert("You need put any tags :/")
+        alert("Please insert 2 tags")
     }
 }
