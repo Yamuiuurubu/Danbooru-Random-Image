@@ -12,6 +12,6 @@ I'm sorry for the limit of 2 tags only. Gold Users have 6 tags limit. You can ch
 
 ## Images from browser
 
-![Talk buttons](Resources/images/menu.png)
-![Talk buttons](Resources/images/sfw_search.png)
-![Talk buttons](Resources/images/nsfw_search.png)
+![Talk buttons](src/images/menu.png)
+![Talk buttons](src/images/sfw_search.png)
+![Talk buttons](src/images/nsfw_search.png)
