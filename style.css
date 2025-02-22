@@ -1,3 +1,5 @@
+body::-webkit-scrollbar {display: none;}
+
 @font-face {
     font-family: Halogen;
     src: url(src/font/Halogen.ttf);
@@ -10,14 +12,11 @@
     font-family: Halogen;
 }
 
-body::-webkit-scrollbar {display: none;}
-
-main {padding: 20px;}
+main {padding: 15px;}
 
 #titulo_texto {
     margin-bottom: 50px;
     font-size: 45px;
-    transition: ease-in-out 1s ;   
 }
 
 body {
@@ -34,21 +33,19 @@ body {
     border: none;
     padding: 10px;
     font-size: 18px;
-    border-radius: 20px;
-    width: 200px;
+    border-radius: 10px;
+    width: 190px;
     margin-bottom: 15px;
     background-color: #242424;
     color: rgb(255, 255, 255);
-    transition: ease-in-out 0.5s;
 }
 
 #imagem {
-    transition: ease;
     display: none;
     margin: auto;
     max-width: 100%;
     max-height: 100vh;
-    border-radius: 20px;
+    border-radius: 50px;
     margin-bottom: 20px;
 }
 
@@ -73,9 +70,6 @@ body {
     padding: 12px 16px;
     font-size: 20px;
     border: none; 
-    border-radius: 14px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.4s ease;
 }
-
-#botao_pesquisar:hover {background-color: #2c2c2c;}

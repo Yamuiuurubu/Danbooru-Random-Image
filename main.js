@@ -7,9 +7,9 @@ const endpointRandom = "https://danbooru.donmai.us/posts/random.json"
 async function pesquisar() {
     var tag1 = document.getElementById('tag1').value //Pega as tags do input
     var tag2 = document.getElementById('tag2').value
-    var errorMessageElement = document.getElementById('errorMessage') //Mensagem de erro
+    var mensagemDeErro = document.getElementById('errorMessage') //Mensagem de erro
 
-    errorMessageElement.textContent = '' // Mensagem de erro vazia
+    mensagemDeErro.textContent = '' // Mensagem de erro vazia
     if (tag1.trim() == '' && tag2.trim() == '') { //Se não tiver tag tente o fetch com o endpoint
         try {
             var resposta = await fetch(endpointRandom)
@@ -32,27 +32,35 @@ async function pesquisar() {
 
     } else {
         try {
-            var tags = `tags=${tag1}+${tag2}`
-            var endpointRandomTag = `${endpointRandom}?${tags}`
-            var resposta = await fetch(endpointRandomTag)
+            let tags = `tags=${tag1}+${tag2}`
+            let endpointRandomTag = `${endpointRandom}?${tags}`
+            let resposta = await fetch(endpointRandomTag)
+            let post = await resposta.json()
+            let imagem_aleatoria = post.file_url
+
             if (!resposta.ok) {
                 throw new Error(`Status: ${resposta.status}`)
             }
-          
-        var post = await resposta.json()
-        var imagem_aleatoria = post.file_url
+            if (imagem_aleatoria === undefined) {
+                console.log("Deu undefined")
+                pesquisar()
+                return
+            }
 
         imagem.src = imagem_aleatoria
         imagem.style.display = 'block'
         titulo.textContent = ''
 
+        console.log(imagem_aleatoria)
+        console.log(resposta)
+
         }
         catch (error) {
             console.error(error)
-            if (error == 'Error: Status: 404')
-                console.log("Error Not Found")
-                errorMessageElement.textContent = error
+            if (error == 'Error: Status: 404') {
+                mensagemDeErro.innerHTML = ":( These tags don't exist, check <a href='https://danbooru.donmai.us/tags' target='_blank' class='tagslink'>Danbooru Tags (;</a>";
+            }
             }
         }
 
-        }
+    }
