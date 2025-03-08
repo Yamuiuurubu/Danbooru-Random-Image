@@ -4,6 +4,10 @@ const artista = document.getElementById('artista')
 const links_exibidos = new Set()
 const endpointRandom = "https://danbooru.donmai.us/posts/random.json"
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+}
+
 async function pesquisar() {
     var tag1 = document.getElementById('tag1').value //Pega as tags do input
     var tag2 = document.getElementById('tag2').value
