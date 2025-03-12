@@ -3,6 +3,8 @@ const titulo = document.getElementById('titulo_texto')
 const artista = document.getElementById('artista')
 const links_exibidos = new Set()
 const endpointRandom = "https://danbooru.donmai.us/posts/random.json"
+const endpointArtist = "https://danbooru.donmai.us/artists.json?search[name]="
+const DanbooruArtistPage = "https://danbooru.donmai.us/artists/"
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
@@ -14,6 +16,7 @@ async function pesquisar() {
     var mensagemDeErro = document.getElementById('errorMessage') //Mensagem de erro
 
     mensagemDeErro.textContent = '' // Mensagem de erro vazia
+    // Sem tags
     if (tag1.trim() == '' && tag2.trim() == '') { //Se não tiver tag tente o fetch com o endpoint
         try {
             var resposta = await fetch(endpointRandom)
@@ -33,30 +36,36 @@ async function pesquisar() {
         titulo.textContent = ''
 
         console.log(imagem_aleatoria)
-
+    // Com tags    
     } else {
         try {
             let tags = `tags=${tag1}+${tag2}`
             let endpointRandomTag = `${endpointRandom}?${tags}`
             let resposta = await fetch(endpointRandomTag)
             let post = await resposta.json()
-            let imagem_aleatoria = post.file_url
+            
+            let art = post.file_url //arte
+            let artistName = post.tag_string_artist //nome do artista
+
+            let artistResponse = await fetch(endpointArtist + artistName)
+            let artistJson = await artistResponse.json()
+            let artistId = artistJson[0].id
+            let artistPage = DanbooruArtistPage + artistId
 
             if (!resposta.ok) {
                 throw new Error(`Status: ${resposta.status}`)
             }
-            if (imagem_aleatoria === undefined) {
+
+            if (art === undefined) {
                 console.log("Deu undefined")
                 pesquisar()
                 return
             }
 
-        imagem.src = imagem_aleatoria
+        imagem.src = art
         imagem.style.display = 'block'
         titulo.textContent = ''
-
-        console.log(imagem_aleatoria)
-        console.log(resposta)
+        artista.innerHTML = `Artist: <a href='${artistPage}' class='ArtistPageLink'>${artistName}</a>`
 
         }
         catch (error) {
