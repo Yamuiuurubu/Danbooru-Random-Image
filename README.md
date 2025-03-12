@@ -1,4 +1,4 @@
-<h1 align="center">Super Danbooru Image Random. (:</h1>
+<h1 align="center">Super Danbooru Image Random (:</h1>
 
 <p align="center">Use the GitPages</p>
 
