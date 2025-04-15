@@ -1,5 +1,9 @@
 body::-webkit-scrollbar {display: none;}
 
+.hidden {
+    display: none;
+}
+
 @font-face {
     font-family: Halogen;
     src: url(src/font/Halogen.ttf);
@@ -26,18 +30,19 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(0, 0, 0);
 }
 
 #tag1, #tag2 {
     border: none;
+    text-align: center;
     padding: 10px;
     font-size: 18px;
     border-radius: 10px;
-    width: 190px;
+    width: 150px;
     margin-bottom: 15px;
-    background-color: #242424;
-    color: rgb(255, 255, 255);
+    background-color: #131313;
+    color: #ffffff;
 }
 
 #imagem {
@@ -69,11 +74,11 @@ body {
 }
 
 #botao_pesquisar {
-    background-color: #6e6e6e;
+    background-color: #131313;
     color: #ffffff;
     padding: 12px 16px;
     font-size: 20px;
-    border: none; 
-    border-radius: 15px;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
 }

@@ -1,17 +1,12 @@
-<h1 align="center">Super Danbooru Image Random (:</h1>
+<h1 align="center">Super Danbooru Random Image (:</h1>
 
-<p align="center">Use the GitPages</p>
+## About
 
-# Danbooru random image by tag.
-This app use [Danbooru API](https://danbooru.donmai.us/wiki_pages/help:api) to search any image/gif with any tag in Danbooru.
+**Super Danbooru Random Image** is a free web application that allows you to fetch random images from [Danbooru](https://danbooru.donmai.us) using its official [API](https://danbooru.donmai.us/wiki_pages/help:api).
+
 ## Usage
-You can use it in your browser by accessing the website: [Super Danbooru Random Image](https://yamuiuurubu.github.io/Danbooru-Random-Image/).
-If you have any problem with tags you can check [Danbooru Tags](https://danbooru.donmai.us/tags) (You can use any tag on the website, include SFW or NSFW tags)
 
-I'm sorry for the limit of 2 tags only. Gold Users have 6 tags limit. You can check Rate Limit in [Danbooru API](https://danbooru.donmai.us/wiki_pages/help:api)
+You can use the app in your browser 
+**[Super Danbooru Random Image Web App](https://yamuiuurubu.github.io/Danbooru-Random-Image/)**
 
-## Images from browser
-
-![Talk buttons](src/images/menu.png)
-![Talk buttons](src/images/sfw_search.png)
-![Talk buttons](src/images/nsfw_search.png)
+If you're having trouble with search tags, you can check [Danbooru Tags Guide](https://danbooru.donmai.us/tags).

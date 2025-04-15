@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="shortcut icon" href="src/images/icon-192x192.png" type="image/x-icon">
     <title>Super Danbooru Random Image</title>
+    <link rel="icon" type="image/x-icon" href="src/images/icon-192x192.png">
     <link rel="stylesheet" href="style.css">
-
     <link rel="manifest" href="manifest.json">
     
 </head>
 <body>
-
     <main>
         <p id="titulo_texto">Super Danbooru Random Image! (:</p>
 
@@ -25,17 +20,17 @@
 
         <div id="tags">
             <form>
-                <label for="tag1"></label>
-                <input type="text" id="tag1" placeholder="tag1">
-
-                <label for="tag2"></label>
-                <input type="text", id="tag2", placeholder="tag2">
+                <input type="text", id="tag1", placeholder="Tag">
+                <input type="text", id="tag2", placeholder="Tag">
             </form>
         </div>
+
         <button id="botao_pesquisar", type="button", onclick="pesquisar()">Refresh</button>
+
+        <input type="checkbox", id="sfw_check", checked="false", onclick="checkcheck()">
+        <label for="sfw_check">SFW</label>
+
     </main>
-    
     <script src="main.js"></script>
-    
 </body>
 </html>
